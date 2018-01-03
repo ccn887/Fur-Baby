@@ -1,0 +1,26 @@
+*{
+  box-sizing: border-box
+}
+
+header {
+  display: flex;
+  background-color: rgb(117, 238, 117)
+  margin: 0;
+  width: 100%;
+  height: 8rem;
+  z-index: 0;
+  font-family: 'Lobster', cursive;
+  opacity: .7;
+}
+
+.casual {
+  display: flex;
+  font-family: 'Indie Flower', cursive;
+
+}
+
+.add-fb {
+  display: flex;
+  position: absolute;
+  top: 20vh;
+}
