@@ -18,7 +18,7 @@ import UpdateScrapbookPage from './client/components/UpdateScrapbookPage'
 import UpdateFurBaby from './client/components/UpdateFurBaby';
 import FurBabyDetail from './client/components/FurBabyDetail';
 import store from './client/store'
-import {getFbs, getTrackers, login, getUser, getImages} from './client/reducer'
+import {getFbs, getTrackers, login, getUser, getImages, setUser} from './client/reducer'
 import firebase, { auth, provider } from './src/fire';
 import { withRouter } from 'react-router'
 
@@ -29,7 +29,7 @@ export default class Routes extends Component {
     componentDidMount () {
       console.log('i ran')
       const FbsThunk = getFbs();
-      const userThunk = login()
+      const userThunk = setUser()
       const imagesThunk = getImages()
 
 

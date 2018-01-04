@@ -5,7 +5,7 @@ import firebase, { auth, provider } from '../../src/fire';
 
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
-const GET_USER = 'GET_USER';
+const SET_USER = 'SET_USER';
 
 
 
@@ -18,9 +18,9 @@ export function loginCreator(user) {
   return action;
 }
 
-export function getUserCreator() {
+export function setUserCreator(user) {
   console.log('got to action creator')
-  const action = { type: GET_USER }
+  const action = { type: SET_USER, user }
   return action;
 }
 
@@ -37,8 +37,8 @@ export default function reducer(user = null, action) {
 
     case LOGIN:
       return action.user;
-      case GET_USER:
-      return user;
+     case SET_USER:
+      return action.user;
     case LOGOUT:
       return null;
 
@@ -58,9 +58,12 @@ export const login = () => dispatch => {
   })
 };
 
-export const getUser = () => dispatch => {
-
-      dispatch(getUserCreator())
+export const setUser = () => dispatch => {
+auth.onAuthStateChanged((user) => {
+if (user) {
+  dispatch(setUserCreator(user))
+}
+  })
 };
 
 export const logout = () => dispatch => {
