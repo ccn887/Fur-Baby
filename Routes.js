@@ -12,12 +12,13 @@ import TrackerDetail from './client/components/TrackerDetail';
 import WalkDetail from './client/components/WalkDetail';
 import NewWalk from './client/components/NewWalk';
 import Scrapbook from './client/components/Scrapbook';
+import MovingPictures from './client/components/MovingPictures';
 import ScrapbookPage from './client/components/ScrapbookPage';
 import UpdateScrapbookPage from './client/components/UpdateScrapbookPage'
 import UpdateFurBaby from './client/components/UpdateFurBaby';
 import FurBabyDetail from './client/components/FurBabyDetail';
 import store from './client/store'
-import {getFbs, getTrackers, login, getUser} from './client/reducer'
+import {getFbs, getTrackers, login, getUser, getImages} from './client/reducer'
 import firebase, { auth, provider } from './src/fire';
 import { withRouter } from 'react-router'
 
@@ -29,9 +30,13 @@ export default class Routes extends Component {
       console.log('i ran')
       const FbsThunk = getFbs();
       const userThunk = login()
+      const imagesThunk = getImages()
+
+
       // const trackersThunk = getTrackers();
       store.dispatch(FbsThunk);
 store.dispatch(userThunk);
+store.dispatch(imagesThunk);
   //   }
   // })
 }
@@ -48,6 +53,7 @@ store.dispatch(userThunk);
      <Route exact path="/trackers/:trackerId" component={TrackerDetail} />
      <Route path="/fur-babies/update/:furbabyId" component={UpdateFurBaby} />
      <Route exact path="/scrapbook" component={Scrapbook} />
+    //  <Route exact path="/moving-scrapbook" component={MovingPictures} />
      <Route path="/fur-babies/scrapbook/update/:scrapbookId" component={UpdateScrapbookPage} />
      <Route path="/fur-babies/scrapbook/:scrapbookId" component={ScrapbookPage} />
      <Route  exact path="/walks" component={AllWalks} />

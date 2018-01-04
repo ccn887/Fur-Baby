@@ -21,4 +21,4 @@ export * from './furbabies';
 export * from './trackers';
 export * from './user';
 
-// export * from './scrapbooks';
+export * from './scrapbook';

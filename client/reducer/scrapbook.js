@@ -4,6 +4,8 @@ import axios from 'axios'
 // ACTION TYPES
 
 const ADD_IMAGE = 'ADD_IMAGE';
+const GET_IMAGES = 'GET_IMAGES';
+
 
 // const ADD_PHOTO = 'ADD_PHOTO';
 
@@ -12,6 +14,10 @@ const ADD_IMAGE = 'ADD_IMAGE';
 
 export function addImageCreator(image) {
   const action = { type: ADD_IMAGE, image};
+  return action;
+}
+export function getImagesCreator(images) {
+  const action = { type: GET_IMAGES, images };
   return action;
 }
 // export function addPhotoCreator() {
@@ -24,6 +30,9 @@ export default function reducer(scrapbook = [], action) {
 
   switch (action.type) {
 
+    case GET_IMAGES:
+      return action.images;
+
     case ADD_IMAGE:
       return [...scrapbook, action.image]
 
@@ -34,6 +43,13 @@ export default function reducer(scrapbook = [], action) {
 }
 //Dispatchers
 
+export const getImages = () => dispatch => {
+  const imagesRef = firebase.database()
+  .ref('images')
+  .on('value', (snapshot) => {
+    dispatch(getImagesCreator(snapshot.val()))
+  })
+};
 
 export const addImage = (file) => dispatch => {
   console.log('got to axios image', file)

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import Dropzone from 'react-dropzone';
-import request from 'superagent'
 import { addAlbum, addImage } from '../reducer/scrapbook';
 
 export class Scrapbook extends Component{
