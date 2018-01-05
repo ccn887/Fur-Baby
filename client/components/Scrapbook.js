@@ -26,19 +26,20 @@ const scrapbookArr = Object.keys(props.scrapbook)
 const currFurId =  props.match.params.furbabyId
 const pageArr = (props.fbs[currFurId].Pages ? Object.keys(props.fbs[currFurId].Pages) : [])
 const pageid = (pageArr.length ? (pageArr.length ) : 1)
-const newpageArr = pageArr.slice(0, -1)
+
 console.log('arr:', scrapbookArr)
       return (
     <div className='app'>
         <div className='wrapper'>
           <h1 id="title">Navigate {props.fbs[currFurId].fbName}'s Scrapbook!</h1>
-          { pageid === 1 ? null :
-            newpageArr.map(page => {
+          { pageArr.map(page => {
             const pagenum = pageArr.indexOf(page) + 1
-            return(
-              <div key={page}>
+
+            return (
+            typeof props.fbs[currFurId].Pages[page] === 'object' ?
+              (<div key={page}>
               <NavLink  to={`/scrapbook/${currFurId}/page/${pagenum}`} style={{ textDecoration: 'none' }}>Page {pagenum}</NavLink>
-              </div>
+              </div>) : null
             )
           })}
           <NavLink  to={`/pagemaker/${currFurId}/page/${pageid}`} style={{ textDecoration: 'none' }}>Make a new page</NavLink>

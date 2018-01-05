@@ -56,7 +56,7 @@ class AllFurBabies extends Component {
                   <NavLink className="fbwrapper"to={`/fur-babies/${fb}`} style={{ textDecoration: 'none' }}>
                   <img id="fb-pic" src={fbs[fb].fbpicURL} />
                     <h3 id="fb-prof">{fbs[fb].fbName}</h3>
-                    <p id="fb-prof">walked by: {fbs[fb].ownerHandle}</p>
+                    <p id="fb-prof">Walked by: {fbs[fb].ownerHandle}</p>
                     <p id="fb-prof"> {fbs[fb].fbDescription}</p>
                     </NavLink>
                   </li>
