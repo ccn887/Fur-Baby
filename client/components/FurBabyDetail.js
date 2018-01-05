@@ -12,7 +12,7 @@ export const FurBabyDetail = (props) => {
     return (
       <div className='app'>
             <div className='wrapper'>
-              <h1>{fbs[currFurId].fbName}</h1>
+              <h1 className="big-text">{fbs[currFurId].fbName}</h1>
               <img id="fb-pic" src={fbs[currFurId].fbpicURL} />
               <p> {fbs[currFurId].fbDescription}</p>
             </div>

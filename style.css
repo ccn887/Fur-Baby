@@ -2,7 +2,7 @@
   box-sizing: border-box
 }
 
-header {
+header.rowcontainer {
   display: flex;
   background-color: rgb(183, 235, 248);
   margin: 0;
@@ -11,13 +11,14 @@ header {
   z-index: 0;
   font-family: 'Lobster', cursive;
   opacity: .7;
+  justify-content: space-between;
+  align-items: center;
 }
 NavLink{
   display: flex
 }
 
-.logo > img {
-  display: flex;
+#logo{
   height: 8rem;
   background-color: rgb(183, 235, 248);
   opacity: 1;
@@ -30,17 +31,19 @@ NavLink{
   font-family: 'Indie Flower', cursive;
 
 }
-div#title {
+h1#title {
   font-family: 'Lobster', cursive;
-  font-size: 1.75rem;
-  padding-top: 0;
+  font-size: 5rem;
   color: black;
-  position: absolute;
   z-index: 1;
-  height: 4vh;
-  top: 5vh;
-  right: 0;
-  left: 22vw
+
+}
+h1.big-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2.5rem;
+  color: black;
+  z-index: 1;
+
 }
 nav {
   display: flex;
@@ -49,11 +52,42 @@ nav {
   }
 
 button#login{
-  background: blueviolet;
+  background: rgb(146, 187, 146);
+  font-family: 'Lobster', cursive;
+  border-radius: 25%;
   border:none;
-  font-size:1em;
-  font-family: 'Josefin Sans', sans-serif;
-  color:rgb(156, 152, 152);
+  font-size:2em;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  color: black;
+  width: 10vw;
+}
+.app{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.fb{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+ #fb-pic{
+  height: 300px;
+  width: 300px;
+  right: 0;
+  left: 0;
+}
+#fb-prof{
+
+}
+.fbwrapper{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-fb {
@@ -61,9 +95,12 @@ button#login{
   position: absolute;
   top: 20vh;
 }
-
+a{
+  color: black;
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+}
 .nav-item {
-  display: flex;
   text-decoration: none;
   color: black;
   font-family: 'Indie Flower', cursive;
@@ -72,6 +109,7 @@ button#login{
   padding-top: 0;
   z-index: 1;
   height: 1rem;
+
 
 
 

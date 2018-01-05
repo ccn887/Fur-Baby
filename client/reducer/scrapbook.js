@@ -5,6 +5,7 @@ import axios from 'axios'
 
 const ADD_IMAGE = 'ADD_IMAGE';
 const GET_IMAGES = 'GET_IMAGES';
+const ADD_PAGE = 'ADD_PAGE';
 
 
 // const ADD_PHOTO = 'ADD_PHOTO';
@@ -14,6 +15,10 @@ const GET_IMAGES = 'GET_IMAGES';
 
 export function addImageCreator(image) {
   const action = { type: ADD_IMAGE, image};
+  return action;
+}
+export function addPageCreator(page) {
+  const action = { type: ADD_PAGE, page};
   return action;
 }
 export function getImagesCreator(images) {
@@ -35,6 +40,8 @@ export default function reducer(scrapbook = [], action) {
 
     case ADD_IMAGE:
       return [...scrapbook, action.image]
+      case ADD_PAGE:
+      return [...scrapbook, action.page]
 
     default:
       return scrapbook;
@@ -67,3 +74,15 @@ export const addImage = (file, style, fbid, pageid) => dispatch => {
       dispatch(addImageCreator(res.data))})
     .catch(err => console.log(`Could not post image:`, err))
 }
+
+export const addpageId = (fbid, pageid) => dispatch =>{
+  const fbsRefPage = firebase.database().ref(`fbs/${fbid}/Pages/${pageid}`);
+  fbsRefPage.set('images')
+  dispatch(addImageCreator(pageid))
+}
+  export const addCaption = (fbid, pageid, imageid, caption)  => dispatch => {
+    const fbsImagesRef = firebase.database().ref(`fbs/${fbid}/Pages/${pageid}/images/${imageid}`);
+      fbsImagesRef.update({ caption: { date: `${caption.date}`, title: `${caption.title}`, caption:`${caption.caption}` }})
+      dispatch(addImageCreator(pageid))
+    }
+

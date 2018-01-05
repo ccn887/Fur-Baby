@@ -18,13 +18,19 @@ console.log('props?', this.props)
 const props = this.props
 const currFurId =  props.match.params.furbabyId
 const pageid = props.match.params.pageId
-const imageobj = (props.fbs[currFurId].Pages[pageid]? props.fbs[currFurId].Pages[pageid].images : null)
-const pageidarr = (imageobj ? Object.keys(props.fbs[currFurId].Pages[pageid].images) : [])
-console.log('pageid', pageid)
+const pageArr = Object.keys(props.fbs[currFurId].Pages)
+const pageidarrtest = props.fbs[currFurId].Pages[pageid].images
+let pageidarr;
+typeof pageidarrtest !== 'object' ? pageidarr = null :
+ pageidarr = Object.keys(pageidarrtest)
+
+
+
+console.log('pageidarr', pageidarr)
       return (
     <div className='app'>
         <div className='wrapper'>
-          <h1>Scrapbook Time!</h1>
+          <h1 className="big-text">Let's Get Scrapbooking! Upload Some Photos for {props.fbs[currFurId].fbName}'s New Page </h1>
           <NavLink to={`/pagemaker/${currFurId }`} style={{ textDecoration: 'none' }}>Make a new page</NavLink>
           <Dropzone
           multiple={true}
@@ -49,9 +55,11 @@ console.log('pageid', pageid)
 
         <div>
       <div className="FileUpload">
+      <NavLink to={`/scrapbook/${currFurId }/page/${pageid}`} style={{ textDecoration: 'none' }}>Done! Take me to the new page!</NavLink>
       {
         <div>
-          {pageidarr === [] ? null : pageidarr.map(page => {
+          {pageidarr === null ? null : pageidarr.map(page => {
+            const imageobj =  props.fbs[currFurId].Pages[pageid].images;
             return(
           <div key={page}>
             <p>{imageobj[page].original_filename

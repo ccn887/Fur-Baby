@@ -47,43 +47,43 @@ class AllFurBabies extends Component {
     console.log('props:', furArr)
 
     return (
-      <div className='app'>
+      <div className='fb'>
 
-          <div className='wrapper'>
-            <h1> All Fur Babies</h1>
 
-          </div>
+            <h1 className="big-text"> All Fur Babies</h1>
 
-        <div className='container'>
+
+
+
           <section className='add-fb'>
             <form onSubmit={this.handleSubmit}>
               <input type="text" name="ownerHandle" placeholder="Who are you?" onChange={this.handleChange} value={this.state.ownerHandle} />
               <input type="text" name="fbName" placeholder="What's your baby's name?" onChange={this.handleChange} value={this.state.fbName} />
-              <input type="text" name="fbpicURL" placeholder="Show us a pic!" onChange={this.handleChange} value={this.state.fbpicURL} />
+              <input type="text" name="fbpicURL" placeholder="Type the link to an avatar" onChange={this.handleChange} value={this.state.fbpicURL} />
               <input type="text" name="fbDescription" placeholder="Describe the pupper in question" onChange={this.handleChange} value={this.state.fbDescription} />
               <button>Woof!</button>
             </form>
           </section>
           <section className='display-item'>
-          <div className="wrapper">
+
             <ul>
               {furArr.map((fb) => {
                 return (
-                  <li key={fb}>
-                  <NavLink to={`/fur-babies/${fb}`} style={{ textDecoration: 'none' }}>
+                  <li key={fb} >
+                  <NavLink className="fbwrapper"to={`/fur-babies/${fb}`} style={{ textDecoration: 'none' }}>
                   <img id="fb-pic" src={fbs[fb].fbpicURL} />
-                    <h3>{fbs[fb].fbName}</h3>
-                    <p>walked by: {fbs[fb].ownerHandle}</p>
-                    <p> {fbs[fb].fbDescription}</p>
+                    <h3 id="fb-prof">{fbs[fb].fbName}</h3>
+                    <p id="fb-prof">walked by: {fbs[fb].ownerHandle}</p>
+                    <p id="fb-prof"> {fbs[fb].fbDescription}</p>
                     </NavLink>
                   </li>
                 )
               })}
             </ul>
-          </div>
+
         </section>
         </div>
-      </div>
+
     );
   }
 }
