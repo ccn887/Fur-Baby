@@ -13,12 +13,10 @@ export default class UpdateFurBaby extends Component {
     const test = this.state.test;
     return (
       <div className='app'>
-        <header>
             <div className='wrapper'>
               <h1>{test}</h1>
 
             </div>
-        </header>
         <div className='container'>
           <section className='add-item'>
               <form>

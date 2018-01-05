@@ -7,10 +7,22 @@ header {
   background-color: rgb(183, 235, 248);
   margin: 0;
   width: 100%;
-  height: 8rem;
+  height: 10rem;
   z-index: 0;
   font-family: 'Lobster', cursive;
   opacity: .7;
+}
+NavLink{
+  display: flex
+}
+
+.logo > img {
+  display: flex;
+  height: 8rem;
+  background-color: rgb(183, 235, 248);
+  opacity: 1;
+  z-index: 0;
+  justify-content: flex-start;
 }
 
 .casual {
@@ -18,9 +30,49 @@ header {
   font-family: 'Indie Flower', cursive;
 
 }
+div#title {
+  font-family: 'Lobster', cursive;
+  font-size: 1.75rem;
+  padding-top: 0;
+  color: black;
+  position: absolute;
+  z-index: 1;
+  height: 4vh;
+  top: 5vh;
+  right: 0;
+  left: 22vw
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  }
+
+button#login{
+  background: blueviolet;
+  border:none;
+  font-size:1em;
+  font-family: 'Josefin Sans', sans-serif;
+  color:rgb(156, 152, 152);
+}
 
 .add-fb {
   display: flex;
   position: absolute;
   top: 20vh;
+}
+
+.nav-item {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  font-family: 'Indie Flower', cursive;
+  font-size: 2rem;
+  padding: 1rem;
+  padding-top: 0;
+  z-index: 1;
+  height: 1rem;
+
+
+
 }

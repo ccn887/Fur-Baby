@@ -13,7 +13,7 @@ class AllFurBabies extends Component {
       fbName: '',
       fbpicURL: '',
       fbDescription: '',
-      fbs: []
+
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,12 +48,12 @@ class AllFurBabies extends Component {
 
     return (
       <div className='app'>
-        <header>
+
           <div className='wrapper'>
             <h1> All Fur Babies</h1>
 
           </div>
-        </header>
+
         <div className='container'>
           <section className='add-fb'>
             <form onSubmit={this.handleSubmit}>

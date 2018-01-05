@@ -7,18 +7,13 @@ const Header = (props) => {
   return (
     <header>
       <div className="logo">
-        <img
-          src="https://i.pinimg.com/736x/6d/df/8a/6ddf8af02deade6ad339aad96f5efd94--dog-logo-dog-walking.jpg"
+        <img src="http://laikadogdetroit.com/wp-content/uploads/2015/07/LAIKA-WHITE-ADD-SMALL-296x300.png"
           />
       </div>
       <nav>
         <NavLink to={`/`} className="nav-item"> Home</NavLink>
         <NavLink to={`/fur-babies`} className="nav-item">Fur Babies</NavLink>
       </nav>
-      <div id="app" className="home">
-        <div id="title">Fur Baby!
-      </div>
-      </div>
     </header>
   )
 }

@@ -51,18 +51,19 @@ export const getImages = () => dispatch => {
   })
 };
 
-export const addImage = (file) => dispatch => {
+export const addImage = (file, style, fbid, pageid) => dispatch => {
+  //style b & white = 'jwsfhasx'
   console.log('got to axios image', file)
-  const imagesRef = firebase.database().ref('images');
+  const fbsRef = firebase.database().ref(`fbs/${fbid}/Pages/${pageid}/images`);
   const fd = new FormData();
-  fd.append("upload_preset", 'jwsfhasx');
+  fd.append("upload_preset", style);
   fd.append("file", file);
   const header = {
     headers: { "X-Requested-With": "XMLHttpRequest" },
   };
   axios.post('https://api.cloudinary.com/v1_1/dygw8tvry/upload', fd, header)
     .then(res => {
-      imagesRef.push(res.data);
+      fbsRef.push(res.data)
       dispatch(addImageCreator(res.data))})
     .catch(err => console.log(`Could not post image:`, err))
 }

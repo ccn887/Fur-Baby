@@ -8,12 +8,12 @@ import Header from './client/components/Header';
 import AllFurBabies from './client/components/AllFurBabies';
 import AllTrackers from './client/components/AllTrackers';
 import AllWalks from './client/components/AllWalks';
-import TrackerDetail from './client/components/TrackerDetail';
 import WalkDetail from './client/components/WalkDetail';
 import NewWalk from './client/components/NewWalk';
 import Scrapbook from './client/components/Scrapbook';
-import MovingPictures from './client/components/MovingPictures';
+import PageMaker from './client/components/PageMaker';
 import ScrapbookPage from './client/components/ScrapbookPage';
+import MovingPictures from './client/components/MovingPictures';
 import UpdateScrapbookPage from './client/components/UpdateScrapbookPage'
 import UpdateFurBaby from './client/components/UpdateFurBaby';
 import FurBabyDetail from './client/components/FurBabyDetail';
@@ -31,8 +31,6 @@ export default class Routes extends Component {
       const FbsThunk = getFbs();
       const userThunk = setUser()
       const imagesThunk = getImages()
-
-
       // const trackersThunk = getTrackers();
       store.dispatch(FbsThunk);
 store.dispatch(userThunk);
@@ -50,12 +48,12 @@ store.dispatch(imagesThunk);
     <Route exact path="/fur-babies" component={AllFurBabies} />
     <Route exact path="/fur-babies/:furbabyId" component={FurBabyDetail} />
     <Route  exact path="/:furbabyId/trackers" component={AllTrackers} />
-     <Route exact path="/trackers/:trackerId" component={TrackerDetail} />
      <Route path="/fur-babies/update/:furbabyId" component={UpdateFurBaby} />
-     <Route exact path="/scrapbook" component={Scrapbook} />
-    //  <Route exact path="/moving-scrapbook" component={MovingPictures} />
-     <Route path="/fur-babies/scrapbook/update/:scrapbookId" component={UpdateScrapbookPage} />
-     <Route path="/fur-babies/scrapbook/:scrapbookId" component={ScrapbookPage} />
+     <Route exact path="/scrapbook/:furbabyId" component={Scrapbook} />
+     <Route exact path="/scrapbook/:furbabyId/page/:pagenum" component={ScrapbookPage} />
+     <Route exact path="/pagemaker/:furbabyId" component={PageMaker} />
+     <Route exact path="/moving-scrapbook" component={MovingPictures} />
+     <Route path="/fur-babies/scrapbook/update/:furbabyId" component={UpdateScrapbookPage} />
      <Route  exact path="/walks" component={AllWalks} />
      <Route  exact path="/new-walk" component={NewWalk} />
      <Route exact path="/walks/:walkId" component={WalkDetail} />

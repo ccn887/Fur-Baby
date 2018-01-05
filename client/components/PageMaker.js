@@ -6,7 +6,7 @@ import { addAlbum, addImage, getUser } from '../reducer/';
 import { NavLink } from 'react-router-dom';
 
 
-export class Scrapbook extends Component{
+export class PageMaker extends Component{
   constructor(props) {
     super(props)
     this.state = {
@@ -18,8 +18,13 @@ console.log('props?', this.props)
 const props = this.props
 const scrapbookArr = Object.keys(props.scrapbook)
 const currFurId =  props.match.params.furbabyId
+const pageArr = (props.fbs[currFurId].Pages ? Object.keys(props.fbs[currFurId].Pages) : [])
+const pageid = (pageArr.length ? pageArr.length : 0)
+const pageidarr = (pageArr.length ? Object.keys(props.fbs[currFurId].Pages[pageid - 1].images) : [])
+const imageobj = (pageArr.length ? props.fbs[currFurId].Pages[pageid - 1].images : {})
 
-console.log('arr:', scrapbookArr)
+console.log('pageidarr', pageidarr)
+console.log('pageArr:', pageArr)
       return (
     <div className='app'>
         <div className='wrapper'>
@@ -28,21 +33,21 @@ console.log('arr:', scrapbookArr)
           <Dropzone
           multiple={true}
           accept="image/*"
-          onDrop={(files) => props.addImage(files[0], 'd53bod1b', currFurId)}>
+          onDrop={(files) => props.addImage(files[0], 'd53bod1b', currFurId, pageid)}>
           <p>Drop an image or click to select a file to upload.</p>
         </Dropzone>
 
           <Dropzone
             multiple={true}
             accept="image/*"
-            onDrop={(files) => props.addImage(files[0], 'jwsfhasx', currFurId)}>
+            onDrop={(files) => props.addImage(files[0], 'jwsfhasx', currFurId, pageid)}>
             <p>Drop an image or click to select a file to upload with a black and white filter.</p>
           </Dropzone>
 
           <Dropzone
             multiple={true}
             accept="image/*"
-            onDrop={(files) => props.addImage(files[0], 'a3tpor8y', currFurId)}>
+            onDrop={(files) => props.addImage(files[0], 'a3tpor8y', currFurId, pageid)}>
             <p>Drop an image or click to select a file to upload with a cartoon filter.</p>
           </Dropzone>
 
@@ -50,12 +55,12 @@ console.log('arr:', scrapbookArr)
       <div className="FileUpload">
       {
         <div>
-          {props.scrapbook === [] ? null : scrapbookArr.map(page => {
+          {pageidarr === [] ? null : pageidarr.map(page => {
             return(
           <div key={page}>
-            <p>{props.scrapbook[page].original_filename
+            <p>{imageobj[page].original_filename
             }</p>
-            <img src={props.scrapbook[page].secure_url} />
+            <img src={imageobj[page].secure_url} />
           </div>
           )})}
         </div>
@@ -71,9 +76,9 @@ console.log('arr:', scrapbookArr)
 const mapState = (state) => {
   return {
     scrapbook: state.scrapbook,
+    fbs: state.furbabies
   }
 }
 const mapDispatch = { addAlbum, addImage, getUser };
 
-export default withRouter(connect(mapState, mapDispatch)(Scrapbook))
-
+export default withRouter(connect(mapState, mapDispatch)(PageMaker))

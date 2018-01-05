@@ -11,21 +11,14 @@ export const FurBabyDetail = (props) => {
   console.log(currFurId)
     return (
       <div className='app'>
-        <header>
             <div className='wrapper'>
               <h1>{fbs[currFurId].fbName}</h1>
               <img id="fb-pic" src={fbs[currFurId].fbpicURL} />
               <p> {fbs[currFurId].fbDescription}</p>
             </div>
-        </header>
         <div className='container'>
-          <section className='add-item'>
-              <form>
-                <input type="text" name="username" placeholder="What's your name?" />
-                <input type="text" name="currentItem" placeholder="What are you bringing?" />
-                <button>Add Item</button>
-              </form>
-          </section>
+
+        <NavLink to={`/scrapbook/${currFurId}`} style={{ textDecoration: 'none' }}>My Scrapbook</NavLink>
           <section className='display-item'>
             <div className='wrapper'>
               <ul>
