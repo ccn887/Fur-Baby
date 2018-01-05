@@ -33,7 +33,8 @@ NavLink{
 }
 .drop-wrapper{
   display: flex;
-  flex-flow: row wrap
+  flex-flow: row wrap;
+  justify-content: center;
 }
 h1#title {
   font-family: 'Lobster', cursive;
