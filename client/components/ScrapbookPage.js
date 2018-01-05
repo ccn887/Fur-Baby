@@ -110,7 +110,7 @@ export class ScrapbookPage extends Component {
                     {imageobj[page].caption ? (
                       <div className="caption">
                         <img src={image} />
-                        <h1 className="big-text"> {imageobj[page].caption.title}</h1>
+                        <h1 className="big-text-special"> {imageobj[page].caption.title}</h1>
                         <h2 className="special"> {imageobj[page].caption.caption}</h2>
                         <p className="med-text"> {imageobj[page].caption.date}</p>
                       </div>) : (

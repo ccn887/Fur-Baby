@@ -44,7 +44,7 @@ class AllFurBabies extends Component {
   render() {
     const fbs = this.props.fbs
     const furArr = Object.keys(fbs)
-    console.log('props:', furArr)
+
 
     return (
       <div className='fb'>

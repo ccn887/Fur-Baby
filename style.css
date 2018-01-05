@@ -50,6 +50,14 @@ h1.big-text {
   z-index: 1;
 
 }
+h1.big-text-special {
+  font-family: 'Indie Flower', cursive;
+  font-size: 2.5rem;
+  color: black;
+  z-index: 1;
+  width: 400;
+
+}
 nav {
   display: flex;
   justify-content: space-between;

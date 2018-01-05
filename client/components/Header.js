@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux';
 
 
 const Header = (props) => {
@@ -17,5 +16,4 @@ const Header = (props) => {
 }
 export default Header
 
-// const mapState = null;
-// export default withRouter(connect(mapState)(Header))
+
