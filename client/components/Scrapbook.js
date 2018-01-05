@@ -18,13 +18,17 @@ console.log('props?', this.props)
 const props = this.props
 const scrapbookArr = Object.keys(props.scrapbook)
 const currFurId =  props.match.params.furbabyId
+const pageArr = (props.fbs[currFurId].Pages ? Object.keys(props.fbs[currFurId].Pages) : [])
+const pageid = (pageArr.length ? (pageArr.length + 1) : 1)
+console.log('pageid', pageid)
+// const pageidarr = (pageArr.length ? Object.keys(props.fbs[currFurId].Pages[pageid - 1].images) : [])
 
 console.log('arr:', scrapbookArr)
       return (
     <div className='app'>
         <div className='wrapper'>
           <h1>Scrapbook Time!</h1>
-          <NavLink to={`/pagemaker/${currFurId }`} style={{ textDecoration: 'none' }}>Make a new page</NavLink>
+          <NavLink to={`/pagemaker/${currFurId}/page/${pageid}`} style={{ textDecoration: 'none' }}>Make a new page</NavLink>
           <Dropzone
           multiple={true}
           accept="image/*"
@@ -71,6 +75,7 @@ console.log('arr:', scrapbookArr)
 const mapState = (state) => {
   return {
     scrapbook: state.scrapbook,
+    fbs: state.furbabies
   }
 }
 const mapDispatch = { addAlbum, addImage, getUser };

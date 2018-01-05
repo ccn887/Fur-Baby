@@ -16,15 +16,11 @@ export class PageMaker extends Component{
     render() {
 console.log('props?', this.props)
 const props = this.props
-const scrapbookArr = Object.keys(props.scrapbook)
 const currFurId =  props.match.params.furbabyId
-const pageArr = (props.fbs[currFurId].Pages ? Object.keys(props.fbs[currFurId].Pages) : [])
-const pageid = (pageArr.length ? pageArr.length : 0)
-const pageidarr = (pageArr.length ? Object.keys(props.fbs[currFurId].Pages[pageid - 1].images) : [])
-const imageobj = (pageArr.length ? props.fbs[currFurId].Pages[pageid - 1].images : {})
-
-console.log('pageidarr', pageidarr)
-console.log('pageArr:', pageArr)
+const pageid = props.match.params.pageId
+const imageobj = (props.fbs[currFurId].Pages[pageid]? props.fbs[currFurId].Pages[pageid].images : null)
+const pageidarr = (imageobj ? Object.keys(props.fbs[currFurId].Pages[pageid].images) : [])
+console.log('pageid', pageid)
       return (
     <div className='app'>
         <div className='wrapper'>

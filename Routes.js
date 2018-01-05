@@ -50,8 +50,8 @@ store.dispatch(imagesThunk);
     <Route  exact path="/:furbabyId/trackers" component={AllTrackers} />
      <Route path="/fur-babies/update/:furbabyId" component={UpdateFurBaby} />
      <Route exact path="/scrapbook/:furbabyId" component={Scrapbook} />
-     <Route exact path="/scrapbook/:furbabyId/page/:pagenum" component={ScrapbookPage} />
-     <Route exact path="/pagemaker/:furbabyId" component={PageMaker} />
+     <Route exact path="/scrapbook/:furbabyId/page/:pageId" component={ScrapbookPage} />
+     <Route exact path="/pagemaker/:furbabyId/page/:pageId" component={PageMaker} />
      <Route exact path="/moving-scrapbook" component={MovingPictures} />
      <Route path="/fur-babies/scrapbook/update/:furbabyId" component={UpdateScrapbookPage} />
      <Route  exact path="/walks" component={AllWalks} />
