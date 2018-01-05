@@ -36,21 +36,21 @@ console.log('pageidarr', pageidarr)
           multiple={true}
           accept="image/*"
           onDrop={(files) => props.addImage(files[0], 'd53bod1b', currFurId, pageid)}>
-          <p>Drop an image or click to select a file to upload.</p>
+          <p className="med-text">Drop an image or click to select a file to upload.</p>
         </Dropzone>
 
           <Dropzone
             multiple={true}
             accept="image/*"
             onDrop={(files) => props.addImage(files[0], 'jwsfhasx', currFurId, pageid)}>
-            <p>Drop an image or click to select a file to upload with a black and white filter.</p>
+            <p className="med-text">Drop an image or click to select a file to upload with a black and white filter.</p>
           </Dropzone>
 
           <Dropzone
             multiple={true}
             accept="image/*"
             onDrop={(files) => props.addImage(files[0], 'a3tpor8y', currFurId, pageid)}>
-            <p>Drop an image or click to select a file to upload with a cartoon filter.</p>
+            <p className="med-text">Drop an image or click to select a file to upload with a cartoon filter.</p>
           </Dropzone>
           </div>
         <div>

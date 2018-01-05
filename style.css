@@ -86,10 +86,12 @@ button#login{
   left: 0;
 }
 h2.special{
-  height: 300px;
   width: 300px;
   right: 0;
   left: 0;
+  color: black;
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
 }
 .fbwrapper{
   display: flex;
