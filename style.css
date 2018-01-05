@@ -31,6 +31,10 @@ NavLink{
   font-family: 'Indie Flower', cursive;
 
 }
+.drop-wrapper{
+  display: flex;
+  flex-flow: row wrap
+}
 h1#title {
   font-family: 'Lobster', cursive;
   font-size: 5rem;
@@ -68,6 +72,7 @@ button#login{
   justify-content: center;
   align-items: center;
 }
+
 .fb{
   display: flex;
   flex-flow: column nowrap;
@@ -80,8 +85,11 @@ button#login{
   right: 0;
   left: 0;
 }
-#fb-prof{
-
+h2.special{
+  height: 300px;
+  width: 300px;
+  right: 0;
+  left: 0;
 }
 .fbwrapper{
   display: flex;
@@ -89,7 +97,12 @@ button#login{
   justify-content: center;
   align-items: center;
 }
-
+input.form-like{
+  width: 20vw;
+  font-size:1em;
+  font-family: 'Josefin Sans', sans-serif;
+  color:rgb(156, 152, 152);
+}
 .add-fb {
   display: flex;
   position: absolute;
@@ -100,6 +113,16 @@ a{
   font-family: 'Lobster', cursive;
   font-size: 2rem;
 }
+.big-text-a{
+  color: black;
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+}
+.med-text{
+  color: black;
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+}
 .nav-item {
   text-decoration: none;
   color: black;
@@ -109,8 +132,20 @@ a{
   padding-top: 0;
   z-index: 1;
   height: 1rem;
-
-
-
-
 }
+  .fun-btn{
+    background: rgb(146, 187, 146);
+    font-family: 'Lobster', cursive;
+    border-radius: 25%;
+    border:none;
+    font-size:2em;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    color: black;
+    width: 10vw;
+  }
+
+
+
+
+

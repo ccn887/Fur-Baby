@@ -97,22 +97,21 @@ export class ScrapbookPage extends Component {
       pageidarr = Object.keys(pageidarrtest)
     return (
       <div className='app'>
-        <div className='wrapper'>
-          <h1 className="big-text">Time to Add the Finishing Touches! </h1>
+        <div className='drop-wrapper'>
 
-          <NavLink to={`/pagemaker/${currFurId}/page/${pageid}`} style={{ textDecoration: 'none' }}> Add more photos!</NavLink>
+
           {
-            <div>
+            <div className='drop-wrapper'>
               {pageidarr === [] ? null : pageidarr.map(page => {
                 const imageobj = props.fbs[currFurId].Pages[pageid].images
                 const image = imageobj[page].secure_url
                 return (
-                  <div key={page}>
+                  <div key={page} >
                     {imageobj[page].caption ? (
                       <div className="caption">
                         <img src={image} />
                         <h1> {imageobj[page].caption.title}</h1>
-                        <h2> {imageobj[page].caption.caption}</h2>
+                        <h2 className="special"> {imageobj[page].caption.caption}</h2>
                         <p> {imageobj[page].caption.date}</p>
                       </div>) : (
                         <div>
@@ -124,7 +123,10 @@ export class ScrapbookPage extends Component {
               })}
             </div>
           }
-        </div>
+          </div>
+          <NavLink to={`/pagemaker/${currFurId}/page/${pageid}`} style={{ textDecoration: 'none' }}> Add more photos!</NavLink>
+          <NavLink to={`/scrapbook/${currFurId}`} style={{ textDecoration: 'none' }}> Take me bark to my scrapbook index !</NavLink>
+
       </div>)
   }
 }

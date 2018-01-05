@@ -29,9 +29,9 @@ typeof pageidarrtest !== 'object' ? pageidarr = null :
 console.log('pageidarr', pageidarr)
       return (
     <div className='app'>
-        <div className='wrapper'>
+
           <h1 className="big-text">Let's Get Scrapbooking! Upload Some Photos for {props.fbs[currFurId].fbName}'s New Page </h1>
-          <NavLink to={`/pagemaker/${currFurId }`} style={{ textDecoration: 'none' }}>Make a new page</NavLink>
+          <div className='drop-wrapper'>
           <Dropzone
           multiple={true}
           accept="image/*"
@@ -52,7 +52,7 @@ console.log('pageidarr', pageidarr)
             onDrop={(files) => props.addImage(files[0], 'a3tpor8y', currFurId, pageid)}>
             <p>Drop an image or click to select a file to upload with a cartoon filter.</p>
           </Dropzone>
-
+          </div>
         <div>
       <div className="FileUpload">
       <NavLink to={`/scrapbook/${currFurId }/page/${pageid}`} style={{ textDecoration: 'none' }}>Done! Take me to the new page!</NavLink>
@@ -72,7 +72,7 @@ console.log('pageidarr', pageidarr)
       </div>
       </div>
 
-    </div>
+
 </div> )
 }
 }

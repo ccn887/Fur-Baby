@@ -48,24 +48,7 @@ class AllFurBabies extends Component {
 
     return (
       <div className='fb'>
-
-
             <h1 className="big-text"> All Fur Babies</h1>
-
-
-
-
-          <section className='add-fb'>
-            <form onSubmit={this.handleSubmit}>
-              <input type="text" name="ownerHandle" placeholder="Who are you?" onChange={this.handleChange} value={this.state.ownerHandle} />
-              <input type="text" name="fbName" placeholder="What's your baby's name?" onChange={this.handleChange} value={this.state.fbName} />
-              <input type="text" name="fbpicURL" placeholder="Type the link to an avatar" onChange={this.handleChange} value={this.state.fbpicURL} />
-              <input type="text" name="fbDescription" placeholder="Describe the pupper in question" onChange={this.handleChange} value={this.state.fbDescription} />
-              <button>Woof!</button>
-            </form>
-          </section>
-          <section className='display-item'>
-
             <ul>
               {furArr.map((fb) => {
                 return (
@@ -80,8 +63,16 @@ class AllFurBabies extends Component {
                 )
               })}
             </ul>
+            <section >
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" name="ownerHandle" placeholder="Who are you?" onChange={this.handleChange} value={this.state.ownerHandle} className="form-like"/>
+              <input type="text" name="fbName" placeholder="What's your baby's name?" onChange={this.handleChange} value={this.state.fbName} className="form-like"/>
+              <input type="text" name="fbpicURL" placeholder="Type the link to an avatar" onChange={this.handleChange} value={this.state.fbpicURL} className="form-like"/>
+              <input type="text" name="fbDescription" placeholder="Describe the pupper in question" onChange={this.handleChange} value={this.state.fbDescription} className="form-like"/>
+              <button className="fun-btn">Woof! Add a Pupper!</button>
+            </form>
+          </section>
 
-        </section>
         </div>
 
     );
